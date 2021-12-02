@@ -6,7 +6,7 @@
 
 Let’s create a Jenkinsfile in the root directory, and for now let’s keep it simple, like this:
 
-`
+```
 pipeline {
   agent any
   options {
@@ -23,7 +23,7 @@ pipeline {
 
   }
 }
-`
+```
 
 After you commit and push the Jenkinsfile to the remote repository, you should be able to see the file created in the main branch.
 
