@@ -39,7 +39,7 @@ pipeline {
 }
 ```
 
-After you commit and push the Jenkinsfile to the remote repository, you should be able to see the file created in the main branch.
+After you commit and push the Jenkinsfile to the remote repository (or pull from the remote if you created the file in the github.com console), you should be able to see the file created in the main branch.
 
 Now, we need to ask Jenkins to scan the repository to find the new branch we just created. Head over to your Jenkins job, and click on “Scan Multiple Pipeline Now” on the left side of the screen. Wait for a minute and refresh the screen. Now you should see that a new branch appears and a Jenkins job has been created automatically.
 
