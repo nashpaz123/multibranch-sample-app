@@ -69,61 +69,41 @@ Head over to the fix-123 branch to make a small change. Run the following comman
 
 git checkout fix-123
 
-Let's create a README.md file with the following content:
+Let's create a new README.md file with the following content (replace the old README.md):
 
 # multibranch-sample-app
 
 Then, modify the Jenkinsfile to print out the content of the README.md file, but only for those branches whose name starts with “fix-”, like this:
 
+```
 pipeline {
-
   agent any
-
   options {
-
     buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5')
-
   }
-
   stages {
-
     stage('Hello') {
-
       steps {
-
         sh '''
-
           java -version
-
         '''
-
       }
-
     }
 
     stage('cat README') {
-
       when {
-
         branch "fix-*"
-
       }
-
       steps {
-
         sh '''
-
           cat README.md
-
         '''
-
       }
-
     }
 
   }
-
 }
+```
 
 Now add, commit, and push those changes to the remote repository, like this:
 
@@ -162,9 +142,7 @@ Commit message: "Update Jenkinsfile"
 
 [Pipeline] sh
 
-```
 + java -version
-```
 
 openjdk version "1.8.0_302"
 
@@ -184,7 +162,7 @@ OpenJDK 64-Bit Server VM (build 25.302-b08, mixed mode)
 
 + cat README.md
 
-# multibranch-sample-app
+#multibranch-sample-app
 
 [Pipeline] }
 
@@ -201,6 +179,8 @@ OpenJDK 64-Bit Server VM (build 25.302-b08, mixed mode)
 [Pipeline] End of Pipeline
 
 Finished: SUCCESS
+
+---
 
 As you can see, the content of the README.md is there because the job got the update we did on the Jenkinsfile. If you run the main job again, you won't see the new change. But to confirm you can have custom behaviors in your pipelines, let's merge the fix-123 branch to main. The log should be the same as before because the logic for printing out the content of the README.md file is only for the “fix-” branches. Let's run the following commands:
 
@@ -223,4 +203,68 @@ git push origin --delete fix-123
 Head over to your Jenkins instance and run a scan again. You should see that the fix-123 job disappears when you refresh the page.
 
 ![Image description](https://github.com/nashpaz123/multibranch-sample-app/blob/main/6.png)
+
+Additionally, when you run the main job, you shouldn´t see the contents of the README.md file in the logs and message saying that the stage has been skipped, like this:
+
+Checking out Revision 346a949925b2dd5b130de8c2a39a3efe8ccd6a96 (main)
+
+ > git config core.sparsecheckout # timeout=10
+
+ > git checkout -f 346a949925b2dd5b130de8c2a39a3efe8ccd6a96 # timeout=10
+
+Commit message: "Merge pull request #1 from christianhxc/fix-123"
+
+ > git rev-list --no-walk fa6bd0e14e37d810dc16f73a4578d2406932a3b0 # timeout=10
+
+[Pipeline] }
+
+[Pipeline] // stage
+
+[Pipeline] withEnv
+
+[Pipeline] {
+
+[Pipeline] stage
+
+[Pipeline] { (Hello)
+
+[Pipeline] sh
+
++ java -version
+
+openjdk version "1.8.0_302"
+
+OpenJDK Runtime Environment (build 1.8.0_302-b08)
+
+OpenJDK 64-Bit Server VM (build 25.302-b08, mixed mode)
+
+[Pipeline] }
+
+[Pipeline] // stage
+
+[Pipeline] stage
+
+[Pipeline] { (cat README)
+
+Stage "cat README" skipped due to when conditional
+
+[Pipeline] }
+
+[Pipeline] // stage
+
+[Pipeline] }
+
+[Pipeline] // withEnv
+
+[Pipeline] }
+
+[Pipeline] // node
+
+[Pipeline] End of Pipeline
+
+Finished: SUCCESS
+
+# Conclusion
+Working with multiple branches at the same time isn’t a problem in Jenkins. You saw how easy it is to create a multibranch pipeline job where Jenkins creates a new independent job automatically for every branch you create. You don't have to worry about doing maintenance as Jenkins will remove the job as well when the branch is removed. And if you need to have custom stages for branches different than the one you use for production, you can do that, too, by defining the custom behavior in the Jenkinsfile.
+
 
