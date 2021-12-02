@@ -93,11 +93,11 @@ Those two new jobs have the same configuration as the one you created initially 
 Making Changes Through Git
 Head over to the fix-123 branch to make a small change. Run the following command:
 
-git checkout fix-123
+`git checkout fix-123`
 
 Let's create a new README.md file with the following content (replace the old README.md):
 
-# multibranch-sample-app
+#multibranch-sample-app
 
 Then, modify the Jenkinsfile to print out the content of the README.md file, but only for those branches whose name starts with “fix-”, like this:
 
