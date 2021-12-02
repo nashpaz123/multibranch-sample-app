@@ -1,6 +1,10 @@
 Before you begin:
 
-Create a new github.com account and repo, clone it
+Create a new free github.com account and Create a repository named: multibranch-sample-app, 
+![Image description](https://github.com/nashpaz123/multibranch-sample-app/blob/main/7.png)
+
+clone it to your linux machine:
+`git clone https://github.com/MY_COOL_ACCOUNT_NAME/multibranch-sample-app.git`
 
 # multibranch-sample-app
 
