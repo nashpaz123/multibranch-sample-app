@@ -39,7 +39,7 @@ pipeline {
 }
 ```
 
-After you commit and push the Jenkinsfile to the remote repository:
+After you commit and push the Jenkinsfile from the local machine to the remote repository:
 ```
 git push
 ```
