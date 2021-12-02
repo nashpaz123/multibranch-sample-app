@@ -1,3 +1,7 @@
+Before you begin:
+
+Create a new github.com account and repo, clone it
+
 # multibranch-sample-app
 
 ![Image description](https://github.com/nashpaz123/multibranch-sample-app/blob/main/1.png)
