@@ -238,7 +238,7 @@ Checking out Revision 346a949925b2dd5b130de8c2a39a3efe8ccd6a96 (main)
 
  > git checkout -f 346a949925b2dd5b130de8c2a39a3efe8ccd6a96 # timeout=10
 
-Commit message: "Merge pull request #1 from christianhxc/fix-123"
+Commit message: "Merge pull request #1 from nashpaz123/fix-123"
 
  > git rev-list --no-walk fa6bd0e14e37d810dc16f73a4578d2406932a3b0 # timeout=10
 
