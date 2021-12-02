@@ -136,7 +136,7 @@ Now add, commit, and push those changes to the remote repository, like this:
 ```
 git add .
 
-git commit -m “Adding the README.md file”
+git commit -m "Adding the README.md file"
 
 git push
 ```
