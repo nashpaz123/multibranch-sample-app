@@ -4,7 +4,10 @@ Create a new free github.com account and Create a repository named: multibranch-
 ![Image description](https://github.com/nashpaz123/multibranch-sample-app/blob/main/7.png)
 
 clone it to your linux machine:
-`git clone https://github.com/MY_COOL_ACCOUNT_NAME/multibranch-sample-app.git`
+```
+git clone https://github.com/MY_COOL_ACCOUNT_NAME/multibranch-sample-app.git
+cd multibranch-sample-app
+```
 
 # multibranch-sample-app
 
@@ -12,7 +15,10 @@ clone it to your linux machine:
 
 ![Image description](https://github.com/nashpaz123/multibranch-sample-app/blob/main/2.png)
 
-Let’s create a Jenkinsfile in the root directory, and for now let’s keep it simple, like this:
+Let’s create a file called: **Jenkinsfile** in the root directory. you can use vim or create it in github.com by clicking create new file. make sure to git pull or git clone again:
+![Image description](https://github.com/nashpaz123/multibranch-sample-app/blob/main/8.png)
+
+for now let’s keep it simple, like this:
 
 ```
 pipeline {
