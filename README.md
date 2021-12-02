@@ -8,6 +8,7 @@ clone it to your linux machine:
 git clone https://github.com/MY_COOL_ACCOUNT_NAME/multibranch-sample-app.git
 cd multibranch-sample-app
 ```
+Create a personal access token (it is the git push password): Under https://github.com/settings/tokens/new -> choose a name and mark all permissions. save the token somewhere safe. https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token )
 
 # multibranch-sample-app
 
@@ -73,6 +74,11 @@ git push --set-upstream origin dev-456
 
 git push --set-upstream origin fix-123
 ```
+
+## Important: 
+(You'll be asked for user and password, the user is the account name, 
+
+Your password for pushing is NOT the account password. It needs to be the personal access token under https://github.com/settings/tokens/new -> choose a name and mark all permissions. save the token somewhere safe. https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token )
 
 If you go to GitHub, you should see that the two new branches were pushed successfully.
 
