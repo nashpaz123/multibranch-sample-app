@@ -76,11 +76,10 @@ git push --set-upstream origin fix-123
 ```
 
 ## Important: 
-(You'll be asked for user and password, the user is the account name, 
+#### (You'll be asked for user and password, the user is the account name, 
+#### Your password for pushing is NOT the account password. It needs to be the personal access token under https://github.com/settings/tokens/new -> choose a name and mark all permissions. save the token somewhere safe. https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token )
 
-Your password for pushing is NOT the account password. It needs to be the personal access token under https://github.com/settings/tokens/new -> choose a name and mark all permissions. save the token somewhere safe. https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token )
-
-If you go to GitHub, you should see that the two new branches were pushed successfully.
+If you go to GitHub now, you should see that the two new branches were pushed successfully.
 
 Let’s go back to your multibranch job in Jenkins. Click again on the “Scan Multibranch Pipeline Now” to discover the new branches and create the new jobs. Wait for a minute and refresh the page. You should see that two new jobs were created because of the new branches you just pushed.
 
