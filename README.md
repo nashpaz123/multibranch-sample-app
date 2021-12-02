@@ -39,7 +39,12 @@ pipeline {
 }
 ```
 
-After you commit and push the Jenkinsfile to the remote repository (or pull from the remote if you created the file in the github.com console), you should be able to see the file created in the main branch.
+After you commit and push the Jenkinsfile to the remote repository:
+```
+git push
+```
+
+(or `git pull` from the remote if you created the file in the github.com console), you should be able to see the file created in the main branch.
 
 Now, we need to ask Jenkins to scan the repository to find the new branch we just created. Head over to your Jenkins job, and click on “Scan Multiple Pipeline Now” on the left side of the screen. Wait for a minute and refresh the screen. Now you should see that a new branch appears and a Jenkins job has been created automatically.
 
@@ -52,6 +57,8 @@ You can inspect the job and see the logs to confirm that it worked.
 At this point, you haven’t seen the benefit of creating a multibranch pipeline job. So, let’s create two more branches in git to see what happens in Jenkins. Open a terminal in your computer and clone the git repository you created before (in case you haven’t done so). Then, run the following commands to create two branches from the main branch:
 
 ```
+git pull #to be sure that were synced with the remote.
+
 git checkout -b fix-123
 
 git checkout main
