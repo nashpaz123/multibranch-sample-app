@@ -19,7 +19,7 @@ pipeline {
       }
     }
     stage('say hello from dev'){
-      step {
+      steps {
  sh '''
          echo "hello from the aother side"
         '''
