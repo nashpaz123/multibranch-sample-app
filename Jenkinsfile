@@ -12,6 +12,17 @@ pipeline {
       }
     }
 
+    stage('development tests') {
+      when {
+        branch "dev-*"
+      }
+      steps {
+        sh '''
+          echo "ase li yeled"
+          echo "alls developed and tested now"
+        '''
+      }
+    }
     stage('cat README') {
       when {
         branch "fix-*"
@@ -23,6 +34,15 @@ pipeline {
         '''
       }
     }
-
+    stage('release') {
+      when {
+        branch "main"
+      }
+      steps {
+        sh '''
+          echo "logic for releaseing to docker hub to aws to 1000000 dollar"
+        '''
+      }
+    }
   }
 }
