@@ -34,7 +34,7 @@ pipeline {
         '''
       }
     }
-    stage('cat README') {
+    stage('release') {
       when {
         branch "main"
       }
