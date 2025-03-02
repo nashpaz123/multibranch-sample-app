@@ -40,7 +40,7 @@ pipeline {
       }
       steps {
         sh '''
-          echo "logic for releaseing to docker hub to aws to 1000000 dollar
+          echo "logic for releaseing to docker hub to aws to 1000000 dollar"
         '''
       }
     }
